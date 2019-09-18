@@ -13,7 +13,7 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import javax.transaction.UserTransaction; 
+import javax.transaction.UserTransaction;
 import modelo.exceptions.NonexistentEntityException;
 import modelo.exceptions.RollbackFailureException;
 

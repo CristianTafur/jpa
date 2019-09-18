@@ -10,16 +10,18 @@
             <h:outputText value="#{bundle.ListPagosTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            <div class="container" align="center">
             <h:form styleClass="jsfcrud_list_form">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
+                <h:commandLink class="btn btn-block btn-dark" action="#{pagosController.prepareCreate}" value="#{bundle.ListPagosCreateLink}"/><br/>
                 <h:outputText escape="false" value="#{bundle.ListPagosEmpty}" rendered="#{pagosController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{pagosController.items.rowCount > 0}">
                     <h:outputText value="#{pagosController.pagination.pageFirstItem + 1}..#{pagosController.pagination.pageLastItem + 1}/#{pagosController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{pagosController.previous}" value="#{bundle.Previous} #{pagosController.pagination.pageSize}" rendered="#{pagosController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{pagosController.next}" value="#{bundle.Next} #{pagosController.pagination.pageSize}" rendered="#{pagosController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{pagosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{pagosController.items}" var="item" class="table table-striped shadow">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPagosTitle_id}"/>
@@ -57,6 +59,7 @@
                             <h:outputText value="#{item.fecha}"/>
                         </h:column>
                         <h:column>
+                            <div align="center">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -64,16 +67,16 @@
                             <h:outputText value=" "/>
                             <h:commandLink action="#{pagosController.prepareEdit}" value="#{bundle.ListPagosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{pagosController.destroy}" value="#{bundle.ListPagosDestroyLink}"/>
+                            <h:commandLink action="#{pagosController.destroy}" value="#{bundle.ListPagosDestroyLink}"/></div>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{pagosController.prepareCreate}" value="#{bundle.ListPagosCreateLink}"/>
+                
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListPagosIndexLink}"/>
-            </h:form>
+                 
+            </h:form></div>
         </ui:define>
     </ui:composition>
 

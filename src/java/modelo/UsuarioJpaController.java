@@ -14,8 +14,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
-import modelo.Usuario;
-import modelo.Usuario;
 import modelo.exceptions.NonexistentEntityException;
 import modelo.exceptions.PreexistingEntityException;
 import modelo.exceptions.RollbackFailureException;

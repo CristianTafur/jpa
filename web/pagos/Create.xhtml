@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.CreatePagosTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.CreatePagosTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:form>
+        <div class="row">
+          <div class="col-md-4 col-sd-4 col-xs-12"> </div>
+          <div class="col-md-4 col-sd-4 col-xs-12">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+              <h:messages
+                errorStyle="color: red"
+                infoStyle="color: green"
+                layout="table"
+              />
             </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{pagosController.selected.id}" title="#{bundle.CreatePagosTitle_id}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_documento}" for="documento" />
-                    <h:inputText id="documento" value="#{pagosController.selected.documento}" title="#{bundle.CreatePagosTitle_documento}" />
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_salarioA}" for="salarioA" />
-                    <h:inputText id="salarioA" value="#{pagosController.selected.salarioA}" title="#{bundle.CreatePagosTitle_salarioA}" />
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_salario}" for="salario" />
-                    <h:inputText id="salario" value="#{pagosController.selected.salario}" title="#{bundle.CreatePagosTitle_salario}" />
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_horaExtra}" for="horaExtra" />
-                    <h:inputText id="horaExtra" value="#{pagosController.selected.horaExtra}" title="#{bundle.CreatePagosTitle_horaExtra}" />
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_fecha}" for="fecha" />
-                    <h:inputText id="fecha" value="#{pagosController.selected.fecha}" title="#{bundle.CreatePagosTitle_fecha}" />
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{pagosController.create}" value="#{bundle.CreatePagosSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{pagosController.prepareList}" value="#{bundle.CreatePagosShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreatePagosIndexLink}"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>
+            <div class="modal-header">
+              <h5 class="modal-title" align="center">create</h5>
+            </div>
+            <div class="modal-body">
+              <h:panelGrid columns="2">
+                <h:outputLabel
+                  value="#{bundle.CreatePagosLabel_documento}"
+                  for="documento"
+                />
+                <h:inputText
+                  class="form-control"
+                  id="documento"
+                  value="#{pagosController.selected.documento}"
+                  title="#{bundle.CreatePagosTitle_documento}"
+                />
+                <h:outputLabel
+                  value="#{bundle.CreatePagosLabel_salario}"
+                  for="salario"
+                />
+                <h:inputText
+                  class="form-control"
+                  id="salario"
+                  value="#{pagosController.selected.salario}"
+                  title="#{bundle.CreatePagosTitle_salario}"
+                />
+                <h:outputLabel
+                  value="#{bundle.CreatePagosLabel_horaExtra}"
+                  for="horaExtra"
+                />
+                <h:inputText
+                  class="form-control"
+                  id="horaExtra"
+                  value="#{pagosController.selected.horaExtra}"
+                  title="#{bundle.CreatePagosTitle_horaExtra}"
+                />
+              </h:panelGrid>
+            </div>
+            <div class="container-fluid">
+              <br />
+              <h:commandLink
+                class="btn btn-block btn-success"
+                action="#{pagosController.create}"
+                value="#{bundle.CreatePagosSaveLink}"
+              />
 
+              <br />
+              <h:commandLink
+                class="btn btn-block btn-dark"
+                action="#{pagosController.prepareList}"
+                value="#{bundle.CreatePagosShowAllLink}"
+                immediate="true"
+              />
+              <br />
+            </div>
+          </div>
+        </div>
+      </h:form>
+    </ui:define>
+  </ui:composition>
 </html>

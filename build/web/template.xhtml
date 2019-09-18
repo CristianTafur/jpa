@@ -11,12 +11,15 @@
                href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
                crossorigin="anonymous"/>
-        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <!--<h:outputStylesheet library="css" name="jsfcrud.css"/>-->
     </h:head>
 
     <h:body>
+          <ui:insert name="top">
+                <ui:include src="/nav.xhtml"/>
+            </ui:insert>
         <h1>
-            <ui:insert name="title">Default Title</ui:insert>
+            <!--<ui:insert name="title">Default Title</ui:insert>-->
         </h1>
         <p>
            <ui:insert name="body">Default Body</ui:insert>  

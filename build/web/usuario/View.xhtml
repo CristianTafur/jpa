@@ -1,46 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ViewUsuarioTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ViewUsuarioTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:form>
+        <div class="row">
+          <div class="col-md-4 col-sd-4 col-xs-12"> </div>
+          <div class="col-md-4 col-sd-4 col-xs-12">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+              <h:messages
+                errorStyle="color: red"
+                infoStyle="color: green"
+                layout="table"
+              />
             </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewUsuarioLabel_documento}"/>
-                    <h:outputText value="#{usuarioController.selected.documento}" title="#{bundle.ViewUsuarioTitle_documento}"/>
-                    <h:outputText value="#{bundle.ViewUsuarioLabel_nombre}"/>
-                    <h:outputText value="#{usuarioController.selected.nombre}" title="#{bundle.ViewUsuarioTitle_nombre}"/>
-                    <h:outputText value="#{bundle.ViewUsuarioLabel_pass}"/>
-                    <h:outputText value="#{usuarioController.selected.pass}" title="#{bundle.ViewUsuarioTitle_pass}"/>
-                    <h:outputText value="#{bundle.ViewUsuarioLabel_valorHoraExtra}"/>
-                    <h:outputText value="#{usuarioController.selected.valorHoraExtra}" title="#{bundle.ViewUsuarioTitle_valorHoraExtra}"/>
-                    <h:outputText value="#{bundle.ViewUsuarioLabel_rol}"/>
-                    <h:outputText value="#{usuarioController.selected.rol}" title="#{bundle.ViewUsuarioTitle_rol}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{usuarioController.destroyAndView}" value="#{bundle.ViewUsuarioDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewUsuarioEditLink}"/>
-                <br />
-                <h:commandLink action="#{usuarioController.prepareCreate}" value="#{bundle.ViewUsuarioCreateLink}" />
-                <br />
-                <h:commandLink action="#{usuarioController.prepareList}" value="#{bundle.ViewUsuarioShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewUsuarioIndexLink}"/>
+            <div class="modal-header">
+              <h5 class="modal-title" align="center">view</h5>
+            </div>
+            <div class="modal-body">
+              <h:panelGrid columns="2">
+                <h:outputText value="#{bundle.ViewUsuarioLabel_documento}" />
+                <h:outputText
+                  value="#{usuarioController.selected.documento}"
+                  title="#{bundle.ViewUsuarioTitle_documento}"
+                />
+                <h:outputText value="#{bundle.ViewUsuarioLabel_nombre}" />
+                <h:outputText
+                  value="#{usuarioController.selected.nombre}"
+                  title="#{bundle.ViewUsuarioTitle_nombre}"
+                />
+                <h:outputText value="#{bundle.ViewUsuarioLabel_pass}" />
+                <h:outputText
+                  value="#{usuarioController.selected.pass}"
+                  title="#{bundle.ViewUsuarioTitle_pass}"
+                />
+                <h:outputText
+                  value="#{bundle.ViewUsuarioLabel_valorHoraExtra}"
+                />
+                <h:outputText
+                  value="#{usuarioController.selected.valorHoraExtra}"
+                  title="#{bundle.ViewUsuarioTitle_valorHoraExtra}"
+                />
+                <h:outputText value="#{bundle.ViewUsuarioLabel_rol}" />
+                <h:outputText
+                  value="#{usuarioController.selected.rol}"
+                  title="#{bundle.ViewUsuarioTitle_rol}"
+                />
+              </h:panelGrid>
+            </div>
 
-            </h:form>
-        </ui:define>
-    </ui:composition>
+            <div class="container-fluid">
+              <br />
+              <h:commandLink
+                class="btn btn-block btn-danger"
+                action="#{usuarioController.destroyAndView}"
+                value="#{bundle.ViewUsuarioDestroyLink}"
+              />
+              <br />
 
+              <h:link
+                class="btn btn-block btn-primary"
+                outcome="Edit"
+                value="#{bundle.ViewUsuarioEditLink}"
+              />
+              <br />
+              <h:commandLink
+                class="btn btn-block btn-success"
+                action="#{usuarioController.prepareCreate}"
+                value="#{bundle.ViewUsuarioCreateLink}"
+              />
+              <br />
+              <h:commandLink
+                class="btn btn-block btn-dark"
+                action="#{usuarioController.prepareList}"
+                value="#{bundle.ViewUsuarioShowAllLink}"
+              />
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+      </h:form>
+    </ui:define>
+  </ui:composition>
 </html>

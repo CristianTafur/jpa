@@ -1,48 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ViewPagosTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ViewPagosTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages
+          errorStyle="color: red"
+          infoStyle="color: green"
+          layout="table"
+        />
+      </h:panelGroup>
+      <h:form>
+        <div class="row">
+          <div class="col-md-4 col-sd-4 col-xs-12"> </div>
+          <div class="col-md-4 col-sd-4 col-xs-12">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+              <h:messages
+                errorStyle="color: red"
+                infoStyle="color: green"
+                layout="table"
+              />
             </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewPagosLabel_id}"/>
-                    <h:outputText value="#{pagosController.selected.id}" title="#{bundle.ViewPagosTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewPagosLabel_documento}"/>
-                    <h:outputText value="#{pagosController.selected.documento}" title="#{bundle.ViewPagosTitle_documento}"/>
-                    <h:outputText value="#{bundle.ViewPagosLabel_salarioA}"/>
-                    <h:outputText value="#{pagosController.selected.salarioA}" title="#{bundle.ViewPagosTitle_salarioA}"/>
-                    <h:outputText value="#{bundle.ViewPagosLabel_salario}"/>
-                    <h:outputText value="#{pagosController.selected.salario}" title="#{bundle.ViewPagosTitle_salario}"/>
-                    <h:outputText value="#{bundle.ViewPagosLabel_horaExtra}"/>
-                    <h:outputText value="#{pagosController.selected.horaExtra}" title="#{bundle.ViewPagosTitle_horaExtra}"/>
-                    <h:outputText value="#{bundle.ViewPagosLabel_fecha}"/>
-                    <h:outputText value="#{pagosController.selected.fecha}" title="#{bundle.ViewPagosTitle_fecha}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{pagosController.destroyAndView}" value="#{bundle.ViewPagosDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewPagosEditLink}"/>
-                <br />
-                <h:commandLink action="#{pagosController.prepareCreate}" value="#{bundle.ViewPagosCreateLink}" />
-                <br />
-                <h:commandLink action="#{pagosController.prepareList}" value="#{bundle.ViewPagosShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewPagosIndexLink}"/>
+            <div class="modal-header">
+              <h5 class="modal-title" align="center">view</h5>
+            </div>
+            <div class="modal-body">
+              <h:panelGrid columns="2">
+                <h:outputText value="#{bundle.ViewPagosLabel_id}" />
+                <h:outputText
+                  value="#{pagosController.selected.id}"
+                  title="#{bundle.ViewPagosTitle_id}"
+                />
+                <h:outputText value="#{bundle.ViewPagosLabel_documento}" />
+                <h:outputText
+                  value="#{pagosController.selected.documento}"
+                  title="#{bundle.ViewPagosTitle_documento}"
+                />
+                <h:outputText value="#{bundle.ViewPagosLabel_salarioA}" />
+                <h:outputText
+                  value="#{pagosController.selected.salarioA}"
+                  title="#{bundle.ViewPagosTitle_salarioA}"
+                />
+                <h:outputText value="#{bundle.ViewPagosLabel_salario}" />
+                <h:outputText
+                  value="#{pagosController.selected.salario}"
+                  title="#{bundle.ViewPagosTitle_salario}"
+                />
+                <h:outputText value="#{bundle.ViewPagosLabel_horaExtra}" />
+                <h:outputText
+                  value="#{pagosController.selected.horaExtra}"
+                  title="#{bundle.ViewPagosTitle_horaExtra}"
+                />
+                <h:outputText value="#{bundle.ViewPagosLabel_fecha}" />
+                <h:outputText
+                  value="#{pagosController.selected.fecha}"
+                  title="#{bundle.ViewPagosTitle_fecha}"
+                />
+              </h:panelGrid>
+            </div>
 
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+            <div class="container-fluid">
+              <br />
+              <h:commandLink
+                class="btn btn-block btn-danger"
+                action="#{pagosController.destroyAndView}"
+                value="#{bundle.ViewPagosDestroyLink}"
+              />
+             
+              <br />
+              <h:link class="btn btn-block btn-primary" outcome="Edit" value="#{bundle.ViewPagosEditLink}" />
+              <br />
+              <h:commandLink
+                class="btn btn-block btn-success"
+                action="#{pagosController.prepareCreate}"
+                value="#{bundle.ViewPagosCreateLink}"
+              />
+              <br />
+              <h:commandLink
+                class="btn btn-block btn-dark"
+                action="#{pagosController.prepareList}"
+                value="#{bundle.ViewPagosShowAllLink}"
+              />
+              <br />
+              <br /> 
+            </div>
+          </div>
+        </div>
+      </h:form>
+    </ui:define>
+  </ui:composition>
 </html>

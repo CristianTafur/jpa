@@ -19,8 +19,6 @@ import javax.faces.model.SelectItem;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.transaction.UserTransaction;
-import modelo.Usuario;
-import modelo.Usuario;
 
 @Named("usuarioController")
 @SessionScoped
@@ -84,7 +82,7 @@ public class UsuarioController implements Serializable {
 
     public String prepareView() {
         current = (Usuario) getItems().getRowData();
-      
+        
         Usuario usuario=getJpaController().findUsuario(current.getDocumento());
         System.out.println(""+usuario.getDocumento()); 
         try {
